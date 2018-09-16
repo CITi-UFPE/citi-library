@@ -1,5 +1,6 @@
 import { Route, BrowserRouter as Router } from 'react-router-dom'
 
+import Header from 'components/header'
 import Home from 'pages/home'
 import { Provider } from 'react-redux'
 import React from 'react'
@@ -12,6 +13,7 @@ const App = () => (
   <Router>
     <Provider store={store}>
       <div className={styles.body}>
+        <Header />
         <Route exact path='/' component={Home} />
       </div>
     </Provider>

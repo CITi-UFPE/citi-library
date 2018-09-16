@@ -1,18 +1,35 @@
 import React, { Component } from 'react'
 
+import Learning from 'components/learning'
+import Page from 'components/page'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { getLibrary } from 'actions/library'
 import styles from './style.scss'
 
 class Home extends Component {
+  componentDidMount () {
+    this.props.getLibrary()
+  }
+
   render () {
+    const { library } = this.props
     return (
-      <div className={styles.homeContainer}>
-        <h1 className={styles.header}>CITi's #library</h1>
-        <p className={styles.intro}>
-          Todos os aprendizados do CITi no #library em um só lugar.
-        </p>
-      </div>
+      <Page>
+        <div className={styles.libraryItems}>
+          {library.items && library.items.map(item => <Learning key={item.id} data={item.data} />)}
+        </div>
+      </Page>
     )
   }
 }
 
-export default Home
+const mapStateToProps = state => ({
+  library: state.library
+})
+
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({ getLibrary }, dispatch)
+)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
