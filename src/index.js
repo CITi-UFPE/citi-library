@@ -6,11 +6,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import registerServiceWorker from './registerServiceWorker'
 import store from 'store'
+import styles from 'styles/main.scss'
 
 const App = () => (
   <Router>
     <Provider store={store}>
-      <div>
+      <div className={styles.body}>
         <Route exact path='/' component={Home} />
       </div>
     </Provider>
