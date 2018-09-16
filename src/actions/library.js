@@ -19,3 +19,35 @@ export const getLibrary = () => dispatch => {
       dispatch(stopLoading())
     })
 }
+
+export const simulateGetLibrary = () => dispatch => {
+  dispatch(startLoading())
+  const results = [
+    {
+      id: 'fu81j2f',
+      data: {
+        authorId: 'H',
+        content: 'Amo como o React funciona.',
+        tags: null,
+        timestamp: 1537090378
+      }
+    },
+    {
+      id: '1e2y9281ud',
+      data: {
+        authorId: 'V',
+        content: 'Se algum dia vocês precisarem configurar o S3 num projeto em Django e as imagens não estiverem aparecendo, primeiro chequem o console (no developer tools) pra ver qual o erro que está dando. Geralmente é um erro que tem No \'Access-Control-Allow-Origin\' header is present on the requested resource.. Pra resolver basta configurar as configurações CORS do bucket.',
+        tags: null,
+        timestamp: 1537096918
+      }
+    }
+  ]
+
+  return new Promise(resolve => (
+    setTimeout(() => {
+      dispatch(receivedLibrary(results))
+      dispatch(stopLoading())
+      resolve()
+    }, 900)
+  ))
+}

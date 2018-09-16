@@ -4,12 +4,12 @@ import Learning from 'components/learning'
 import Page from 'components/page'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { getLibrary } from 'actions/library'
+import { simulateGetLibrary } from 'actions/library'
 import styles from './style.scss'
 
 class Home extends Component {
   componentDidMount () {
-    this.props.getLibrary()
+    this.props.simulateGetLibrary()
   }
 
   render () {
@@ -29,7 +29,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => (
-  bindActionCreators({ getLibrary }, dispatch)
+  bindActionCreators({ simulateGetLibrary }, dispatch)
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
