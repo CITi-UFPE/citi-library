@@ -8,6 +8,7 @@ const Header = () => (
     <nav className={styles.navbar}>
       <NavLink activeClassName={styles.active} exact to='/'>Início</NavLink>
       <NavLink activeClassName={styles.active} to='/tags'>Tags</NavLink>
+      <NavLink activeClassName={styles.active} to='/leaderboards'>Leaderboards</NavLink>
     </nav>
     <h1 className={styles.title}>
       { emoji('CITi\'s #library 🐷') }

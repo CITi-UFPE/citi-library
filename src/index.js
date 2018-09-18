@@ -6,6 +6,7 @@ import Tags, { SingleTag } from 'pages/tags'
 import Footer from 'components/footer'
 import Header from 'components/header'
 import Home from 'pages/home'
+import Leaderboard from 'pages/leaderboard'
 import LearningPage from 'pages/learning'
 import ReactDOM from 'react-dom'
 import { bindActionCreators } from 'redux'
@@ -34,6 +35,7 @@ class App extends Component {
                 <Route exact path='/tags' component={Tags} />
                 <Route exact path='/tag/:tagName' component={SingleTag} />
                 <Route exact path='/learning/:learningId' component={LearningPage} />
+                <Route exact path='/leaderboards' component={Leaderboard} />
                 <Route render={() => <div>Página não encontrada</div>} />
               </Switch>
               <Footer />
