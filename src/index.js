@@ -1,12 +1,12 @@
+import { Provider, connect } from 'react-redux'
 import React, { Component } from 'react'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
+import Tags, { SingleTag } from 'pages/tags'
 
 import Header from 'components/header'
 import Home from 'pages/home'
-import { Provider } from 'react-redux'
 import ReactDOM from 'react-dom'
 import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
 import { getAuthors } from 'actions/authors'
 import { getLibrary } from 'actions/library'
 import registerServiceWorker from './registerServiceWorker'
@@ -29,6 +29,8 @@ class App extends Component {
               <Header />
               <Switch>
                 <Route exact path='/' component={Home} />
+                <Route exact path='/tags' component={Tags} />
+                <Route exact path='/tag/:tagName' component={SingleTag} />
                 <Route render={() => <div>Página não encontrada</div>} />
               </Switch>
             </div>

@@ -11,7 +11,9 @@ class Home extends Component {
     return (
       <Page>
         <div className={styles.libraryItems}>
-          {library.items && library.items.map(item => <Learning key={item.id} data={item.data} />)}
+          {library.items && library.items.length
+            ? library.items.map(item => <Learning key={item.id} data={item.data} />)
+            : <div>Nenhum item encontrado. Que tal começar a usar o comando <code>/library</code>?</div>}
         </div>
       </Page>
     )

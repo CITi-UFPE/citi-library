@@ -11,6 +11,7 @@ client.on('ready', () => {
 
 // Firestore functions
 
+// SEGURANÇA PRA QUE?
 var config = {
   apiKey: 'AIzaSyDS-mruqPmaOdqMuBhr4V36t6Hu8fmjwjM',
   authDomain: 'citi-library.firebaseapp.com',
