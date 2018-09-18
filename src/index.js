@@ -24,7 +24,7 @@ class App extends Component {
   render () {
     const { store } = this.props
     return (
-      <Router basename='/library'>
+      <Router>
         <Provider store={store}>
           <div className={styles.body}>
             <div className={styles.container}>
