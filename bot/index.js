@@ -5,6 +5,8 @@ const client = new Discord.Client()
 // Logging
 const chalk = require('chalk')
 
+const SITE = 'http://citi.org.br/library'
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`)
 })
@@ -49,9 +51,13 @@ const createLibraryItem = message => {
     tags: tags.join(','),
     timestamp
   })
-    .then(() => {
+    .then(ref => {
       console.log(chalk.green('Item criado na library!'))
-      message.channel.send('Seu post foi criado com sucesso!')
+      const confirmationMsg = `.
+      Seu post foi criado com sucesso! :white_check_mark:
+      Para acessá-lo, clique aqui: <${SITE}/learning/${ref.id}>
+      `
+      message.channel.send(confirmationMsg)
     })
     .catch(error => chalk.red('Erro', error))
 }
@@ -66,11 +72,6 @@ const parseMessage = message => {
       ? splitMessage.slice(1, splitMessage.length).join(' ')
       : splitMessage.slice(1, startIndex).join(' ')
   )
-  console.log('splitMessage | startIndex | endIndex | text')
-  console.log(splitMessage)
-  console.log(startIndex)
-  console.log(endIndex)
-  console.log(text)
   const tagsList = (
     (startIndex !== 0 && endIndex !== 0)
       ? splitMessage.slice(startIndex, endIndex + 1).join(' ')
@@ -103,7 +104,6 @@ client.on('message', msg => {
       case 'library':
         return handleLibraryCommand(msg)
       default:
-        return msg.channel.send('Eu não entendi este comando!')
     }
   }
 })
