@@ -1,17 +1,17 @@
-import {
-  LIBRARY_FETCHING_FAILED,
-  RECEIVED_LIBRARY
-} from 'actions/library'
+import { Library } from 'actions/library'
 
 const LibraryReducer = (library = {}, action) => {
+  console.groupCollapsed(action.type)
+  console.log(action)
+  console.groupEnd()
   switch (action.type) {
-    case RECEIVED_LIBRARY:
+    case Library.RECEIVED_LIBRARY:
       return {
         ...library,
         items: [...action.items],
         error: null
       }
-    case LIBRARY_FETCHING_FAILED:
+    case Library.LIBRARY_FETCHING_FAILED:
       return {
         ...library,
         error: action.error

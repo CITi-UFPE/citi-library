@@ -1,23 +1,28 @@
 import { startLoading, stopLoading } from 'actions/loading'
 
 import Api from 'utils/api'
+import { parseTags } from 'utils/parsing'
+import { receivedTags } from 'actions/tags'
 
-export const RECEIVED_LIBRARY = 'RECEIVED_LIBRARY'
-export const LIBRARY_FETCHING_FAILED = 'LIBRARY_FETCHING_FAILED'
+export const Library = {
+  LIBRARY_FETCHING_FAILED: 'LIBRARY_FETCHING_FAILED',
+  RECEIVED_LIBRARY: 'RECEIVED_LIBRARY'
+}
 
-export const receivedLibrary = items => ({ type: RECEIVED_LIBRARY, items })
-export const libraryFetchingFailed = error => ({ type: LIBRARY_FETCHING_FAILED, error })
+export const receivedLibrary = items => ({ type: Library.RECEIVED_LIBRARY, items })
+export const libraryFetchingFailed = error => ({ type: Library.LIBRARY_FETCHING_FAILED, error })
 export const getLibrary = () => dispatch => {
   dispatch(startLoading())
   Api.getLibrary()
     .then(data => {
       dispatch(receivedLibrary(data))
-      dispatch(stopLoading())
+      const tags = parseTags(data)
+      dispatch(receivedTags(tags))
     })
     .catch(error => {
       dispatch(libraryFetchingFailed(error))
-      dispatch(stopLoading())
     })
+    .then(() => dispatch(stopLoading()))
 }
 
 export const simulateGetLibrary = () => dispatch => {
@@ -26,8 +31,8 @@ export const simulateGetLibrary = () => dispatch => {
     {
       id: 'fu81j2f',
       data: {
-        authorId: 'H',
-        content: 'Amo como o React funciona.',
+        authorId: 'Bia',
+        content: 'Amo como o React funciona. 😁',
         tags: null,
         timestamp: 1537090378
       }
@@ -35,9 +40,9 @@ export const simulateGetLibrary = () => dispatch => {
     {
       id: '1e2y9281ud',
       data: {
-        authorId: 'V',
+        authorId: 'Sophia',
         content: 'Se algum dia vocês precisarem configurar o S3 num projeto em Django e as imagens não estiverem aparecendo, primeiro chequem o console (no developer tools) pra ver qual o erro que está dando. Geralmente é um erro que tem No \'Access-Control-Allow-Origin\' header is present on the requested resource.. Pra resolver basta configurar as configurações CORS do bucket.',
-        tags: null,
+        tags: 'react,s3,bucket',
         timestamp: 1537096918
       }
     }
