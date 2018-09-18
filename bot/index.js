@@ -13,16 +13,15 @@ client.on('ready', () => {
 
 // Firestore functions
 
-// SEGURANÇA PRA QUE NÉ? ¯\_(ツ)_/¯
-var config = {
-  apiKey: 'AIzaSyDS-mruqPmaOdqMuBhr4V36t6Hu8fmjwjM',
+var libraryConfig = {
+  apiKey: 'AIzaSyDS-mruqPmaOdqMuBhr4V36t6Hu8fmjwjM', // SEGURANÇA PRA QUE NÉ? ¯\_(ツ)_/¯
   authDomain: 'citi-library.firebaseapp.com',
   databaseURL: 'https://citi-library.firebaseio.com',
   projectId: 'citi-library',
   storageBucket: 'citi-library.appspot.com',
   messagingSenderId: '682974949035'
 }
-firebase.initializeApp(config)
+firebase.initializeApp(libraryConfig)
 const database = firebase.firestore()
 database.settings({ timestampsInSnapshots: true })
 
