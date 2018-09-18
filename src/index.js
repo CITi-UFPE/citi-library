@@ -3,8 +3,10 @@ import React, { Component } from 'react'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import Tags, { SingleTag } from 'pages/tags'
 
+import Footer from 'components/footer'
 import Header from 'components/header'
 import Home from 'pages/home'
+import LearningPage from 'pages/learning'
 import ReactDOM from 'react-dom'
 import { bindActionCreators } from 'redux'
 import { getAuthors } from 'actions/authors'
@@ -31,8 +33,10 @@ class App extends Component {
                 <Route exact path='/' component={Home} />
                 <Route exact path='/tags' component={Tags} />
                 <Route exact path='/tag/:tagName' component={SingleTag} />
+                <Route exact path='/learning/:learningId' component={LearningPage} />
                 <Route render={() => <div>Página não encontrada</div>} />
               </Switch>
+              <Footer />
             </div>
           </div>
         </Provider>

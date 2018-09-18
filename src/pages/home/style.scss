@@ -1,4 +1,27 @@
+@import '~styles/variables';
+
 .home-container {
   width: 800px;
   margin: 0 auto;
+}
+
+.not-found-message {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 5px 20px transparentize(#000, .95);
+
+  h4 {
+    margin: 0 0 10px;
+    font-size: 1.3em;
+    font-weight: normal;
+  }
+
+  code {
+    color: #D84F59;
+    padding: 1px 3px;
+    border-radius: 5px;
+    font-size: .8em;
+    font-family: $code-font;
+  }
 }

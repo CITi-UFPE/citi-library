@@ -14,9 +14,9 @@ class Tags extends Component {
         <Title>Filtrar por tags</Title>
         <div className={styles.tagList}>
           {tags.length > 0 && tags.map(tag => (
-            <NavLink key={tag} to={`/tag/${tag}`}>{tag}</NavLink>
+            <NavLink className={styles.tag} key={tag} to={`/tag/${tag}`}>{tag}</NavLink>
           ))}
-          <NavLink to={`/tag/sem-tag`}>Sem tags</NavLink>
+          <NavLink className={styles.noTag} to={`/tag/sem-tag`}>Sem tags</NavLink>
         </div>
       </Page>
     )

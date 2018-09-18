@@ -11,7 +11,7 @@ client.on('ready', () => {
 
 // Firestore functions
 
-// SEGURANÇA PRA QUE?
+// SEGURANÇA PRA QUE NÉ? ¯\_(ツ)_/¯
 var config = {
   apiKey: 'AIzaSyDS-mruqPmaOdqMuBhr4V36t6Hu8fmjwjM',
   authDomain: 'citi-library.firebaseapp.com',
@@ -36,9 +36,8 @@ const createLibraryItem = message => {
     avatar: author.avatarUrl,
     id: author.id
   })
-    .then(response => console.log('authors', response))
-    .catch(error => chalk.red('Erro', error))
-  console.log(chalk.blue('Message'), body)
+    .then(() => console.log(chalk.green('Autor criado!')))
+    .catch(error => console.log(chalk.red('Erro', error)))
   const timestamp = (
     message.createdTimestamp
       .toString()
@@ -50,7 +49,10 @@ const createLibraryItem = message => {
     tags: tags.join(','),
     timestamp
   })
-    .then(() => chalk.green('Criado!'))
+    .then(() => {
+      console.log(chalk.green('Item criado na library!'))
+      message.channel.send('Seu post foi criado com sucesso!')
+    })
     .catch(error => chalk.red('Erro', error))
 }
 
@@ -89,8 +91,7 @@ const handleLibraryCommand = message => {
       formato certo. Tenha certeza de usar o formato \`[tag1,tag2]\``
     )
   }
-  createLibraryItem(message)
-  return message.channel.send('Seu post foi feito com sucesso!')
+  return createLibraryItem(message)
 }
 
 client.on('message', msg => {

@@ -1,3 +1,5 @@
+@import '~styles/variables';
+
 body {
   margin: 0;
   background: #f1f3f5;
@@ -6,7 +8,19 @@ body {
   font-family: 'IBM Plex Sans', sans-serif;
 }
 
+a, a:visited {
+  color: $primary-color;
+}
+
+a:hover {
+  color: darken(saturate($primary-color, 10%), 10%);
+}
+
 .container {
   width: 700px;
   margin: 10px auto;
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 95vh;
+  justify-content: space-between;
 }

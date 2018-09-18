@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 
 import Learning from 'components/learning'
+import { Link } from 'react-router-dom'
 import Page from 'components/page'
 import Title from 'components/title'
 import { connect } from 'react-redux'
+import emoji from 'react-easy-emoji'
+import styles from './style.scss'
 
 class SingleTag extends Component {
   render () {
@@ -11,11 +14,12 @@ class SingleTag extends Component {
     const tagName = match.params.tagName
     return (
       <Page>
-        <Title>Filtrando por {tagName}</Title>
+        <Link to='/tags/' className={styles.back}>{ emoji('👈') }</Link>
+        <Title>Filtrando por {tagName === 'sem-tag' ? 'itens sem tag' : tagName}</Title>
         <div>
           {items.length
-            ? items.map(item => <Learning key={item.id} data={item.data} />)
-            : <div>Nenhum item encontrado</div>}
+            ? items.map(item => <Learning key={item.id} id={item.id} data={item.data} />)
+            : <div>Nenhum item encontrado.</div>}
         </div>
       </Page>
     )

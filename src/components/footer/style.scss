@@ -1,0 +1,52 @@
+@import '~styles/variables';
+
+.footer {
+  font-size: .9em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px dashed darken(#f0f0f0, 5%);
+
+  .how-to {
+    grid-column: 1 / 2;
+
+    h4 {
+      margin: 0 0 5px;
+      font-weight: 500;
+    }
+
+    code {
+      padding: 4px 5px;
+      border-radius: 5px;
+      font-size: .8em;
+      font-family: $code-font;
+      background: transparentize(#fff, .7);
+
+      strong {
+        color: #D84F59;
+      }
+    }
+  }
+
+  .author {
+    grid-column: 3 / 4;
+    text-align: right;
+
+    .source {
+      font-family: $code-font;
+      color: #666;
+      font-size: .9em;
+      font-weight: 500;
+      display: grid;
+      align-items: center;
+      justify-content: end;
+      grid-gap: 5px;
+      grid-auto-flow: column;
+      margin-top: 10px;
+      text-decoration: none;
+    }
+  }
+}
