@@ -32,10 +32,10 @@ class App extends Component {
               <Header />
               <Switch>
                 <Route exact path='/' component={Home} />
-                <Route exact path='/tags' component={Tags} />
-                <Route exact path='/tag/:tagName' component={SingleTag} />
-                <Route exact path='/learning/:learningId' component={LearningPage} />
-                <Route exact path='/leaderboards' component={Leaderboard} />
+                <Route exact path='tags/' component={Tags} />
+                <Route exact path='tag/:tagName/' component={SingleTag} />
+                <Route exact path='learning/:learningId/' component={LearningPage} />
+                <Route exact path='leaderboards/' component={Leaderboard} />
                 <Route render={() => <div>Página não encontrada</div>} />
               </Switch>
               <Footer />
@@ -58,4 +58,5 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-registerServiceWorker()
+// Disable for now
+// registerServiceWorker()
