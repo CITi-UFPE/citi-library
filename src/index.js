@@ -12,7 +12,6 @@ import ReactDOM from 'react-dom'
 import { bindActionCreators } from 'redux'
 import { getAuthors } from 'actions/authors'
 import { getLibrary } from 'actions/library'
-import registerServiceWorker from './registerServiceWorker'
 import store from 'store'
 import styles from 'styles/main.scss'
 
@@ -25,7 +24,7 @@ class App extends Component {
   render () {
     const { store } = this.props
     return (
-      <Router>
+      <Router basename='/library'>
         <Provider store={store}>
           <div className={styles.body}>
             <div className={styles.container}>
