@@ -2,7 +2,6 @@
   "short_name": "CITi Library",
   "name": "Aprendizados do CITi.",
   "start_url": ".",
-  "homepage": "./",
   "display": "standalone",
   "theme_color": "#8cba4e",
   "background_color": "#fafafa"
