@@ -14,7 +14,7 @@ class SingleTag extends Component {
     const tagName = match.params.tagName
     return (
       <Page>
-        <Link to='tags/' className={styles.back}>{ emoji('👈') }</Link>
+        <Link to='/tags' className={styles.back}>{ emoji('👈') }</Link>
         <Title>Filtrando por {tagName === 'sem-tag' ? 'itens sem tag' : tagName}</Title>
         <div>
           {items.length
