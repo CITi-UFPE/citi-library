@@ -35,6 +35,23 @@ A título de informação, o banco de dados do bot da library (eu realmente deve
 1. Digite `scp build/* citi@citi.org.br:webapps/discord_library` e insira a senha do SSH
 1. Espere todos os arquivos serem transferidos
 1. Logue-se no SSH, vá até o diretório `discord_library`
-1. Digite `export PATH=$HOME/webapps/discord_joaozinho/bin:$PATH`
+1. Digite `export PATH=$HOME/webapps/discord_library/bin:$PATH`
 1. Digite `forever restart server.js`
 1. Done! :sparkles:
+
+### Dando deploy no bot
+> É uma boa depois passar o bot pra o repositório do Joãozinho, que tem deploy automático.
+1. Baixe o site para seu computador
+1. Rode `npm install`
+1. Modifique o que precisar no bot (e garanta que ele está funcionando com suas modificações)
+1. Do diretório principal, digite `scp bot/index.js citi@citi.org.br:webapps/discord_joaozinho/library.js` e insira a senha do SSH
+1. Espere tudo ser transferido
+1. Logue no SSH, vá até o diretório `discord_joaozinho`
+1. Digite `export PATH=$HOME/webapps/discord_joaozinho/bin:$PATH`
+1. Digite `forever restartall`
+1. Done! :sparkles:
+
+### Rodando o bot localmente
+1. Baixe o site para seu computador
+1. Rode `npm install`
+1. Use `nodemon bot/index.js` para rodar (toda vez que você atualizar algo no arquivo, o bot reiniciará)

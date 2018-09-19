@@ -110,6 +110,7 @@
     "dotenv": "^6.0.0",
     "mini-css-extract-plugin": "^0.4.2",
     "node-sass": "^4.9.3",
+    "nodemon": "^1.18.4",
     "postcss-color-function": "^4.0.1",
     "postcss-initial": "^3.0.0",
     "postcss-loader": "^2.0.8",
