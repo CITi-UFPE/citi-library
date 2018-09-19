@@ -24,14 +24,14 @@ const Learning = ({ data, author, id }) => {
           />
           {author.username}
           &nbsp;―&nbsp;
-          <Link to={`learning/${id}/`}>
+          <Link to={`/learning/${id}`}>
             <UnixMoment>{timestamp}</UnixMoment>
           </Link>
         </div>
         {tags
           ? <div className={styles.tags}>
             {tags && tags.split(',').map(tag => (
-              <Link to={`tag/${tag}/`} className={styles.tag} key={tag}>{tag}</Link>
+              <Link to={`/tag/${tag}`} className={styles.tag} key={tag}>{tag}</Link>
             ))}
           </div>
           : <div className={styles.noTag}>Nenhuma tag</div>
