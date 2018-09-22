@@ -12,6 +12,9 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`)
 })
 
+// Utils
+const singleLine = text => text.replace(/\s+/g, ' ')
+
 // Firestore functions
 
 var libraryConfig = {
@@ -90,6 +93,14 @@ const handleLibraryCommand = message => {
     return message.channel.send(
       `Você provavelmente tentou usar tags, mas não as colocou no
       formato certo. Tenha certeza de usar o formato \`[tag1,tag2]\``
+    )
+  }
+  if (split.length === 1) {
+    return message.channel.send(
+      singleLine(`
+        Ajuda: Você pode utilizar o comando \`/library Alguma coisa [tag1, tag2]\` para gerar
+        algum conhecimento novo. *Tags são opcionais!*`
+      )
     )
   }
   return createLibraryItem(message)
