@@ -10,6 +10,17 @@ Este projeto utiliza:
 - Redux
 - Redux Thunk
 
+## Como o projeto é colocado no ar?
+Se utiliza o [Buddy](https://buddy.works/) para colocar o projeto no ar (tanto o site quanto o bot). Ele é um aplicativo automatizador de tarefas (como fazer build, entrar no SSH e rodar comandos, etc.). As pipelines para ele já existem, mas você pode saber como funciona indo até a pasta `_buddy`, onde tem todos os passos.
+
+Cada uma das duas pipelines fazem conexão com o SSH do CITi e a senha original foi omitida por razões óbvias.
+
+### Status
+| Bot | Site |
+-|-
+| [![buddy pipeline](https://app.buddy.works/vanessafreitasb/citi-library/pipelines/pipeline/152547/badge.svg?token=743e278b5a9f501cf4d88bd593dafe3c4663b937b24d8e63b77e6716bc58d082 "buddy pipeline")](https://app.buddy.works/vanessafreitasb/citi-library/pipelines/pipeline/152547) | [![buddy pipeline](https://app.buddy.works/vanessafreitasb/citi-library/pipelines/pipeline/152546/badge.svg?token=743e278b5a9f501cf4d88bd593dafe3c4663b937b24d8e63b77e6716bc58d082 "buddy pipeline")](https://app.buddy.works/vanessafreitasb/citi-library/pipelines/pipeline/152546)
+
+
 ## Onde está cada coisa?
 O bot da library não roda no mesmo arquivo que o bot do Joãozinho. O comando `/library` [é ignorado no Joãozinho](https://github.com/CITi-UFPE/discord-joaozinho/blob/master/bot.js#L186) para ser lidado com nosso outro bot.
 
