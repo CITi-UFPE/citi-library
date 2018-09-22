@@ -1,5 +1,6 @@
 const Discord = require('discord.js')
 const firebase = require('firebase')
+require('firebase/firestore')
 const client = new Discord.Client()
 
 // Logging
