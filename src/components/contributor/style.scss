@@ -1,0 +1,41 @@
+@import '~styles/variables';
+
+.contributor-container {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px transparentize(#000, .95);
+    padding: 10px;
+    margin-bottom: 15px;
+    background: #fff;
+
+    &:first-child {
+        background-color: gold;
+    }
+
+    &:nth-child(2) {
+        background-color: silver;
+    }
+
+    &:nth-child(3) {
+        background-color: #c9ae5d;
+    }
+
+    .author {
+        display: flex;
+        align-items: center;
+  
+        .author-avatar {
+          border-radius: 8px;
+          margin-right: 10px;
+          width: 30px;
+        }
+  
+        a { text-decoration: none }
+    }
+
+    .count {
+        display: flex;
+        align-items: center;
+    }
+}

@@ -197,7 +197,7 @@ module.exports = {
             test: /\.scss$/,
             use: ExtractTextPlugin.extract({
               fallback: 'style-loader',
-              include: [paths.appSrc, paths.appSrc + '/styles'],
+              //include: [paths.appSrc, paths.appSrc + '/styles'],
               use: [
                 {
                   loader: 'css-loader',
