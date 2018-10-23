@@ -1,22 +1,41 @@
 import React, { Component } from 'react'
 
-import { IoIosConstruct } from 'react-icons/io'
+import Contributor from 'components/contributor'
+import NotFoundMessage from 'components/not-found'
 import Page from 'components/page'
-import emoji from 'react-easy-emoji'
-import styles from './style.scss'
+import { connect } from 'react-redux'
 
-export default class Leaderboard extends Component {
+class Leaderboard extends Component {
+  groupContributors = contributions => {
+    const contributors = contributions.reduce((collection, current) => {
+      const { authorId } = current.data;
+      if(authorId in collection) collection[authorId]++;
+      else collection[authorId] = 1;
+      return collection;
+    }, {});
+
+    return Object.keys(contributors).map(author => {
+      return { author, count: contributors[author] };
+    }).sort((a, b) => b.count - a.count);
+  }
+
   render () {
+    const { library } = this.props;
     return (
       <Page>
-        <div className={styles.icon}>
-          <IoIosConstruct />
-        </div>
-        <div className={styles.text}>
-          <h3>Em construção!</h3>
-          {emoji('Quer ajudar? Contribua com o repositório 😊')}
+        <div>
+          {library.items && library.items.length
+            ? this.groupContributors(library.items)
+              .map(({ author, count }) => <Contributor key={author} authorId={author} count={count} />)
+            : <NotFoundMessage />}
         </div>
       </Page>
     )
   }
 }
+
+const mapStateToProps = state => ({
+  library: state.library
+})
+
+export default connect(mapStateToProps)(Leaderboard)
