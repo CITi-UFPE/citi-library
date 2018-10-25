@@ -99,7 +99,7 @@ const handleLibraryCommand = message => {
     return message.channel.send(
       singleLine(`
         Ajuda: Você pode utilizar o comando \`/library Alguma coisa [tag1, tag2]\` para gerar
-        algum conhecimento novo. *Tags são opcionais!*`
+        algum conhecimento novo. Tags são opcionais!`
       )
     )
   }
