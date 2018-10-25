@@ -5,7 +5,6 @@ const client = new Discord.Client()
 
 // Logging
 const chalk = require('chalk')
-
 const SITE = 'http://citi.org.br/library'
 
 client.on('ready', () => {
@@ -16,7 +15,6 @@ client.on('ready', () => {
 const singleLine = text => text.replace(/\s+/g, ' ')
 
 // Firestore functions
-
 var libraryConfig = {
   apiKey: 'AIzaSyDS-mruqPmaOdqMuBhr4V36t6Hu8fmjwjM', // SEGURANÇA PRA QUE NÉ? ¯\_(ツ)_/¯
   authDomain: 'citi-library.firebaseapp.com',
