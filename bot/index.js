@@ -84,6 +84,7 @@ const parseMessage = message => {
 
 const handleLibraryCommand = message => {
   const split = message.content.split(' ')
+
   // Checking if there are tags
   const hasLeftTag = !!split.find(i => i.startsWith('['))
   const hasRightTag = !!split.find(i => i.endsWith(']'))
