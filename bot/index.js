@@ -94,6 +94,7 @@ const handleLibraryCommand = message => {
       formato certo. Tenha certeza de usar o formato \`[tag1,tag2]\``
     )
   }
+
   if (split.length === 1) {
     return message.channel.send(
       singleLine(`
@@ -102,6 +103,7 @@ const handleLibraryCommand = message => {
       )
     )
   }
+
   return createLibraryItem(message)
 }
 
