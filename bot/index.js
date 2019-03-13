@@ -25,7 +25,8 @@ var libraryConfig = {
 }
 firebase.initializeApp(libraryConfig)
 const database = firebase.firestore()
-database.settings({ timestampsInSnapshots: true })
+// For some reason it's not initializing with this, so I disabled
+// database.settings({ timestampsInSnapshots: true })
 
 const createLibraryItem = message => {
   const author = {
