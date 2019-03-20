@@ -36,6 +36,17 @@ Apesar disso, o bot da library está no mesmo diretório do Joãozinho no servid
     ```
 1. Digite `forever list` e veja as aplicações rodando.
 
+### Reiniciando o bot
+1. Se conecte no SSh
+1. Vá até o diretório do discord_joaozinho: `cd ~/webapps/discord_joaozinho`
+1. Como cada aplicação é isolada no Webfaction, você precisa exportar o diretório `bin` para poder chamar comandos como `npm` ou `node`.
+
+    ```bash
+    export PATH=$HOME/webapps/discord_joaozinho/bin:$PATH
+    ```
+1. Digite `forever list` e veja quais aplicações estão rodando. Você pode pegar o caminho de cada log e digitar `vim caminho/do/log`
+1. Para reiniciar, digite `forever restartall`
+
 ### Banco de dados
 A título de informação, o banco de dados do bot da library (eu realmente deveria escolher um nome pra ele) é completamente independente do Joãozinho.
 
