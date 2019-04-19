@@ -1,9 +1,6 @@
 import { Library } from 'actions/library'
 
 const LibraryReducer = (library = {}, action) => {
-  console.groupCollapsed(action.type)
-  console.log(action)
-  console.groupEnd()
   switch (action.type) {
     case Library.RECEIVED_LIBRARY:
       return {
