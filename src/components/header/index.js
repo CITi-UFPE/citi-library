@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import React from 'react'
-import emoji from 'react-easy-emoji'
+
 import styles from './style.scss'
 
 const Header = () => (

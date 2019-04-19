@@ -5,36 +5,44 @@ import NotFoundMessage from 'components/not-found'
 import Page from 'components/page'
 import { connect } from 'react-redux'
 
-class Leaderboard extends Component {
-  groupContributors = contributions => {
-    const contributors = contributions.reduce((collection, current) => {
-      const { authorId } = current.data;
-      if(authorId in collection) collection[authorId]++;
-      else collection[authorId] = 1;
-      return collection;
-    }, {});
+const MIN_COUNT = 2
 
-    return Object.keys(contributors).map(author => {
-      return { author, count: contributors[author] };
-    }).sort((a, b) => b.count - a.count);
+class Leaderboard extends Component {
+  groupContributors = (contributions) => {
+    const contributors = contributions.reduce((collection, current) => {
+      const { authorId } = current.data
+      if (authorId in collection) collection[authorId]++
+      else collection[authorId] = 1
+      return collection
+    }, {})
+
+    return Object.keys(contributors)
+      .map((author) => {
+        return { author, count: contributors[author] }
+      })
+      .sort((a, b) => b.count - a.count)
+      .filter(author => author.count >= MIN_COUNT)
   }
 
-  render () {
-    const { library } = this.props;
+  render() {
+    const { library } = this.props
     return (
       <Page>
         <div>
-          {library.items && library.items.length
-            ? this.groupContributors(library.items)
-              .map(({ author, count }) => <Contributor key={author} authorId={author} count={count} />)
-            : <NotFoundMessage />}
+          {library.items && library.items.length ? (
+            this.groupContributors(library.items).map(({ author, count }) => (
+              <Contributor key={author} authorId={author} count={count} />
+            ))
+          ) : (
+            <NotFoundMessage />
+          )}
         </div>
       </Page>
     )
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   library: state.library
 })
 
