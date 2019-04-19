@@ -7,7 +7,7 @@ const database = require('./utils/database')
 const { singleLine } = require('./utils')
 
 const { DISCORD_BOT_TOKEN } = process.env
-console.log(DISCORD_BOT_TOKEN)
+
 const SITE = 'http://citi.org.br/library'
 
 const client = new Discord.Client()
