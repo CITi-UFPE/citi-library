@@ -4,7 +4,7 @@ const chalk = require('chalk')
 const database = require('./utils/database')
 const { singleLine } = require('./utils')
 
-const { LIBRARY_FIREBASE_API_KEY, DISCORD_BOT_TOKEN } = process.env
+const { DISCORD_BOT_TOKEN } = process.env
 const SITE = 'http://citi.org.br/library'
 
 const client = new Discord.Client()
@@ -158,4 +158,4 @@ client.on('message', (msg) => {
   }
 })
 
-client.login('NDE0MjA3MTQyMjY3MDYwMjI0.DpW3zQ.vB3UL0PdQe3zfG0UrTGa2pCt5ns')
+client.login(DISCORD_BOT_TOKEN)
