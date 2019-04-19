@@ -13,6 +13,5 @@ const LIBRARY_FIREBASE_CONFIGS = {
 firebase.initializeApp(LIBRARY_FIREBASE_CONFIGS)
 
 const database = firebase.firestore()
-database.settings({ timestampsInSnapshots: true })
 
 module.exports = database
