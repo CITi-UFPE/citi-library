@@ -39,8 +39,8 @@ const deleteLibraryItem = (message) => {
       }
       const { authorId } = doc.data()
       // Pessoa que quer deletar o learning não é o criador
-      // OU não é da diretoria executiva (definido em DIREX_ROLE_ID)
-      if (message.author.id !== authorId || message.member.roles.has(DIREX_ROLE_ID)) {
+      // E não é da diretoria executiva (definido em DIREX_ROLE_ID)
+      if (message.author.id !== authorId && !message.member.roles.has(DIREX_ROLE_ID)) {
         database
           .collection('authors')
           .doc(authorId)
