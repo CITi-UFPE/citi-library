@@ -10,6 +10,12 @@ Este projeto utiliza:
 - Redux
 - Redux Thunk
 
+## Desenvolvendo
+1. `cp .env.example .env`
+1. `npm install`
+1. `npm run start` para iniciar o site
+1. `npm run start:bot` para iniciar o bot
+
 ## Como o projeto é colocado no ar?
 Se utiliza o [Buddy](https://buddy.works/) para colocar o projeto no ar (tanto o site quanto o bot). Ele é um aplicativo automatizador de tarefas (como fazer build, entrar no SSH e rodar comandos, etc.). As pipelines para ele já existem, mas você pode saber como funciona indo até a pasta `_buddy`, onde tem todos os passos.
 
