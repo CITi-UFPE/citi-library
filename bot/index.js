@@ -19,12 +19,13 @@ client.on('ready', () => {
 const DIREX_ROLE_ID = '284477588720844801'
 
 const deleteLibraryItem = (message) => {
+  const ctgEmoji = message.guild.emojis.find(a => a.name === 'ctg')
   const learningId = message.content.split(' ')[1]
   console.log('Learning id', learningId)
   const messages = {
     notFound: `
       Não foi encontrado um learning com id \`${learningId}\`, certifique-se
-      que você digitou corretamente. :ctg:
+      que você digitou corretamente. ${ctgEmoji}
     `,
     success: 'Learning apagado com sucesso! :wastebasket:'
   }
@@ -50,7 +51,7 @@ const deleteLibraryItem = (message) => {
               singleLine(
                 `Você não tem permissão para apagar este learning porque não é o autor
               (<@${result.id}>) ou não faz parte do grupo da diretoria. Entre em contato
-              caso isto não deveria ter acontecido. :ctg:`
+              caso isto não deveria ter acontecido. ${ctgEmoji}`
               )
             )
           })
