@@ -21,7 +21,7 @@ class Leaderboard extends Component {
         return { author, count: contributors[author] }
       })
       .sort((a, b) => b.count - a.count)
-      .filter(author => author.count >= MIN_COUNT)
+      .filter(author => author.count >= MIN_COUNT && author.username !== 'vanessa')
   }
 
   render() {
