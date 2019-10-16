@@ -47,10 +47,20 @@
       display: flex;
       align-items: center;
 
-      .author-avatar {
+      .author-avatar,
+      .default-avatar {
         border-radius: 999px;
         margin-right: 10px;
         width: 34px;
+      }
+
+      .default-avatar {
+        height: 34px;
+        background-color: #e2e2e2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px dashed #c0c0c0;
       }
 
       a {
