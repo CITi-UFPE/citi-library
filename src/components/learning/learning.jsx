@@ -27,6 +27,7 @@ class Learning extends React.Component {
     const { data, author, id } = this.props
     const { hasAvatar } = this.state
     const { content, timestamp, tags } = data
+
     return (
       <div className={styles.learningContainer}>
         <div className={styles.content}>
