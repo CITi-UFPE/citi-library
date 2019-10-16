@@ -6,7 +6,7 @@
   grid-auto-flow: row;
   margin-bottom: 15px;
   border-radius: 5px;
-  box-shadow: 0 2px 5px transparentize(#000, .95);
+  box-shadow: 0 2px 5px transparentize(#000, 0.95);
   text-decoration: none;
 
   .content {
@@ -22,10 +22,10 @@
     }
 
     code {
-      color: #D84F59;
+      color: #d84f59;
       padding: 1px 3px;
       border-radius: 5px;
-      font-size: .9em;
+      font-size: 0.9em;
       font-family: $code-font;
       line-height: 1.5em;
     }
@@ -35,7 +35,7 @@
     align-items: center;
     background: #f8f9fa;
     border-radius: 0 0 5px 5px;
-    border-top: solid 1px rgba(102,119,136,.05);
+    border-top: solid 1px rgba(102, 119, 136, 0.05);
     color: #666;
     display: flex;
     justify-content: space-between;
@@ -46,13 +46,25 @@
       display: flex;
       align-items: center;
 
-      .author-avatar {
+      .author-avatar,
+      .default-avatar {
         border-radius: 999px;
         margin-right: 10px;
         width: 34px;
       }
 
-      a { text-decoration: none }
+      .default-avatar {
+        height: 34px;
+        background-color: #e2e2e2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px dashed #c0c0c0;
+      }
+
+      a {
+        text-decoration: none;
+      }
     }
 
     .tag {
@@ -64,15 +76,16 @@
       margin-left: 5px;
       text-decoration: none;
 
-      &:hover { background-color: darken($tag-color, 5%) }
+      &:hover {
+        background-color: darken($tag-color, 5%);
+      }
     }
 
     .no-tag {
       padding: 3px 5px;
       border: 1px #ccc dashed;
       border-radius: 5px;
-      opacity: .2;
+      opacity: 0.2;
     }
   }
-
 }
