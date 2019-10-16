@@ -51,7 +51,7 @@ Apesar disso, o bot da library está no mesmo diretório do Joãozinho no servid
 
 ### Reiniciando o bot
 
-1. Se conecte no SSh
+1. Se conecte no SSH
 1. Vá até o diretório do discord_joaozinho: `cd ~/webapps/discord_joaozinho`
 1. Como cada aplicação é isolada no Webfaction, você precisa exportar o diretório `bin` para poder chamar comandos como `npm` ou `node`.
 
