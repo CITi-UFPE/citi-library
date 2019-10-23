@@ -2,6 +2,7 @@ import { Provider, connect } from 'react-redux'
 import React, { Component } from 'react'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import Tags, { SingleTag } from 'pages/tags'
+import Authors, { SingleAuthor } from 'pages/authors'
 
 import Footer from 'components/footer'
 import Header from 'components/header'
@@ -16,25 +17,27 @@ import store from 'store'
 import styles from 'styles/main.scss'
 
 class App extends Component {
-  componentDidMount () {
+  componentDidMount() {
     this.props.getLibrary()
     this.props.getAuthors()
   }
 
-  render () {
+  render() {
     const { store } = this.props
     return (
-      <Router basename='/library'>
+      <Router basename="/library">
         <Provider store={store}>
           <div className={styles.body}>
             <div className={styles.container}>
               <Header />
               <Switch>
-                <Route exact path='/' component={Home} />
-                <Route exact path='/tags' component={Tags} />
-                <Route exact path='/tag/:tagName' component={SingleTag} />
-                <Route exact path='/learning/:learningId' component={LearningPage} />
-                <Route exact path='/leaderboards' component={Leaderboard} />
+                <Route exact path="/" component={Home} />
+                <Route exact path="/tags" component={Tags} />
+                <Route exact path="/tag/:tagName" component={SingleTag} />
+                <Route exact path="/authors" component={Authors} />
+                <Route exact path="/author/:authorName" component={SingleAuthor} />
+                <Route exact path="/learning/:learningId" component={LearningPage} />
+                <Route exact path="/leaderboards" component={Leaderboard} />
                 <Route render={() => <div>Página não encontrada</div>} />
               </Switch>
               <Footer />
@@ -46,16 +49,14 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => (
-  bindActionCreators({ getLibrary, getAuthors }, dispatch)
-)
+const mapDispatchToProps = dispatch => bindActionCreators({ getLibrary, getAuthors }, dispatch)
 
-const ConnectedApp = connect(null, mapDispatchToProps)(App)
+const ConnectedApp = connect(
+  null,
+  mapDispatchToProps
+)(App)
 
-ReactDOM.render(
-  <ConnectedApp store={store} />,
-  document.getElementById('root')
-)
+ReactDOM.render(<ConnectedApp store={store} />, document.getElementById('root'))
 
 // Disable for now
 // registerServiceWorker()
