@@ -1,7 +1,7 @@
-.tag-list {
+.author-list {
   line-height: 28px;
 
-  .tag {
+  .author {
     margin-right: 10px;
     font-size: 1.2em;
     display: inline-block;
@@ -12,8 +12,4 @@
   font-size: 2em;
   display: block;
   margin-bottom: 10px;
-}
-
-.tags-page {
-  flex-grow: 1;
 }

@@ -7,11 +7,3 @@ export const parseTags = tagsList => {
     .map(i => (i.includes(',') ? i.split(',') : i))
   return _.uniq(_.flatten(tags))
 }
-
-export const parseAuthors = authorsList => {
-  const authors = authorsList
-    .map(i => i.data.authors)
-    .filter(i => i !== '')
-    .map(i => (i.includes(',') ? i.split(',') : i))
-  return _.uniq(_.flatten(authors))
-}
