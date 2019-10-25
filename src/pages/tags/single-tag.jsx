@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 import Learning from 'components/learning'
 import { Link } from 'react-router-dom'
@@ -9,38 +10,38 @@ import emoji from 'react-easy-emoji'
 import styles from './style.scss'
 
 class SingleTag extends Component {
-  render () {
+  render() {
     const { items, match } = this.props
     const tagName = match.params.tagName
     return (
       <Page>
-        <Link to='/tags' className={styles.back}>{ emoji('👈') }</Link>
+        <Link to="/tags" className={styles.back}>
+          {emoji('👈')}
+        </Link>
         <Title>Filtrando por {tagName === 'sem-tag' ? 'itens sem tag' : tagName}</Title>
         <div>
-          {items.length
-            ? items.map(item => <Learning key={item.id} id={item.id} data={item.data} />)
-            : <div>Nenhum item encontrado.</div>}
+          {items.length ? (
+            items.map(item => <Learning key={item.id} id={item.id} data={item.data} />)
+          ) : (
+            <div>Nenhum item encontrado.</div>
+          )}
         </div>
       </Page>
     )
   }
 }
 
+SingleTag.propTypes = {
+  match: PropTypes.object
+}
+
 const mapStateToProps = (state, { match }) => {
   const tagName = match.params.tagName
-  const itemsWithoutTag = (
-    !!state.library.items &&
-    state.library.items.filter(i => i.data.tags === '')
-  )
-  const filteredItems = (
-    !!state.library.items &&
-    state.library.items.filter(i => i.data.tags.includes(tagName))
-  )
-  const parsedItems = (
-    tagName === 'sem-tag'
-      ? itemsWithoutTag
-      : filteredItems
-  )
+  const itemsWithoutTag =
+    !!state.library.items && state.library.items.filter(i => i.data.tags === '')
+  const filteredItems =
+    !!state.library.items && state.library.items.filter(i => i.data.tags.includes(tagName))
+  const parsedItems = tagName === 'sem-tag' ? itemsWithoutTag : filteredItems
   return { items: parsedItems, isLoading: state.isLoading }
 }
 

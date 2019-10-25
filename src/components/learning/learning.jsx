@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
@@ -74,11 +75,16 @@ class Learning extends React.Component {
   }
 }
 
+Learning.propTypes = {
+  author: PropTypes.object,
+  data: PropTypes.object,
+  id: PropTypes.string
+}
+
 const mapStateToProps = (state, { data }) => {
+  const { authors } = state
   const author =
-    state.authors.items &&
-    state.authors.items.length > 0 &&
-    state.authors.items.find(i => i.id === data.authorId)
+    authors.items && authors.items.length > 0 && authors.items.find(i => i.id === data.authorId)
   return { author: author ? author.data : {} }
 }
 
