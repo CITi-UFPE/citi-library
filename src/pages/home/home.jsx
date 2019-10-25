@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import Learning from 'components/learning'
 import NotFoundMessage from 'components/not-found'
@@ -6,19 +6,19 @@ import Page from 'components/page'
 import { connect } from 'react-redux'
 import styles from './style.scss'
 
-class Home extends Component {
-  render () {
-    const { library } = this.props
-    return (
-      <Page>
-        <div className={styles.libraryItems}>
-          {library.items && library.items.length
-            ? library.items.map(item => <Learning key={item.id} data={item.data} id={item.id} />)
-            : <NotFoundMessage />}
-        </div>
-      </Page>
-    )
-  }
+const Home = props => {
+  const { library } = props
+  return (
+    <Page>
+      <div className={styles.libraryItems}>
+        {library.items && library.items.length ? (
+          library.items.map(item => <Learning key={item.id} data={item.data} id={item.id} />)
+        ) : (
+          <NotFoundMessage />
+        )}
+      </div>
+    </Page>
+  )
 }
 
 const mapStateToProps = state => ({
