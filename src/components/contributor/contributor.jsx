@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
 
@@ -51,11 +52,15 @@ class Contributor extends React.Component {
   }
 }
 
+Contributor.propTypes = {
+  author: PropTypes.object,
+  count: PropTypes.number
+}
+
 const mapStateToProps = (state, { authorId }) => {
+  const { authors } = state
   const author =
-    state.authors.items &&
-    state.authors.items.length > 0 &&
-    state.authors.items.find(i => i.id === authorId)
+    authors.items && authors.items.length > 0 && authors.items.find(i => i.id === authorId)
   return { author: author ? author.data : {} }
 }
 

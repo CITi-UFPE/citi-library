@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 import Contributor from 'components/contributor'
 import NotFoundMessage from 'components/not-found'
@@ -46,6 +47,11 @@ class Leaderboard extends Component {
       </Page>
     )
   }
+}
+
+Leaderboard.propTypes = {
+  library: PropTypes.object,
+  authors: PropTypes.object
 }
 
 const mapStateToProps = state => ({
