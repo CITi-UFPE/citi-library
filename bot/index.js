@@ -117,8 +117,11 @@ const parseMessage = (message) => {
       ? splitMessage.slice(1, splitMessage.length).join(' ')
       : splitMessage.slice(1, startIndex).join(' ')
   const tagsList =
-    startIndex !== 0 && endIndex !== 0 ? splitMessage.slice(startIndex, endIndex + 1).join(' ') : []
-  const tags = tagsList.replace(/(\[|\]|\s)+/g, '').split(',')
+    startIndex !== 0 && endIndex !== 0 ? splitMessage.slice(startIndex, endIndex + 1).join(' ') : '';
+  // Ao invés de remover os espaços de tagsList com a regex, remove apenas os colchetes, faz o split
+  // da string resultante em vários arrays e só depois remove os espaços no começo e no fim das tags
+  // em cada uma das posições do array aplicando String.trim() via Array.map()
+  const tags = tagsList.replace(/(\[|\])+/g, '').split(',').map(tag => tag.trim());
   return [text, tags]
 }
 
